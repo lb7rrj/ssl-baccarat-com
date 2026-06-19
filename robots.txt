@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lb7rrj.github.io/ssl-baccarat-com/sitemap.xml

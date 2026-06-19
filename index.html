@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>了解百家乐 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f2f7fa;
+            color: #1c2e3a;
+            line-height: 1.7;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 780px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 12px 32px rgba(28, 46, 58, 0.08);
+            padding: 32px 24px 40px;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 600px) {
+            .page {
+                padding: 48px 40px 56px;
+                margin-top: 24px;
+                margin-bottom: 24px;
+            }
+        }
+
+        /* 蓝绿色点缀 */
+        .accent-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #2a9d8f;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .hero-short {
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #cde0d9;
+        }
+
+        .hero-short p {
+            font-size: 1.4rem;
+            font-weight: 350;
+            letter-spacing: 0.02em;
+            color: #1a3b3a;
+            background: #e4f2ef;
+            display: inline-block;
+            padding: 6px 18px 6px 20px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+        }
+
+        .hero-short em {
+            font-style: normal;
+            background: #d0ebe6;
+            padding: 0 6px;
+        }
+
+        .intro-text {
+            margin: 28px 0 32px;
+        }
+
+        .intro-text p {
+            margin-bottom: 18px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin: 36px 0 32px;
+        }
+
+        @media (min-width: 540px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #f7fcfb;
+            border-radius: 24px;
+            padding: 22px 18px 20px;
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.08);
+            border-left: 5px solid #2a9d8f;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(42, 157, 143, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: #1e4a47;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3 span {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #2a9d8f;
+            color: #fff;
+            font-size: 0.85rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            margin-right: 6px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2d4b4a;
+        }
+
+        .gentle-closing {
+            margin-top: 40px;
+            padding: 24px 20px;
+            background: linear-gradient(145deg, #f0f8f6, #e4f0ed);
+            border-radius: 28px;
+            border: 1px solid #cde0d9;
+            text-align: center;
+        }
+
+        .gentle-closing p {
+            font-size: 1rem;
+            color: #1f3f3d;
+        }
+
+        .gentle-closing .reminder {
+            display: inline-block;
+            margin-top: 10px;
+            background: #ffffffd0;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2a6b64;
+            border: 1px solid #b6d4cd;
+            backdrop-filter: blur(2px);
+        }
+
+        .faq-mini {
+            margin: 30px 0 20px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 16px 20px 16px 20px;
+            border: 1px solid #d9e8e3;
+        }
+
+        .faq-mini details {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #e4efe9;
+            padding: 6px 0;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1c4d47;
+            cursor: pointer;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            color: #2a9d8f;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini .answer {
+            padding: 8px 0 4px 22px;
+            color: #2e5450;
+            font-size: 0.95rem;
+        }
+
+        .link-holder {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            background: #eaf3f0;
+            padding: 14px 18px;
+            border-radius: 60px;
+            display: inline-block;
+        }
+
+        .link-holder a {
+            color: #1b6b62;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #2a9d8f;
+            padding-bottom: 2px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-holder a:hover {
+            border-bottom-color: #1f4f48;
+            color: #0e403a;
+        }
+
+        .small-note {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #5a7a76;
+            text-align: center;
+            border-top: 1px solid #d6e4df;
+            padding-top: 24px;
+        }
+
+        .small-note span {
+            background: #dcedf0;
+            padding: 0 8px;
+            border-radius: 20px;
+            color: #1c5c56;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #c2dbd3;
+            margin: 24px 0 18px;
+            opacity: 0.5;
+        }
+
+        .highlight {
+            background: #dbf0ec;
+            padding: 0 6px;
+            border-radius: 12px;
+            color: #1b534b;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句 -->
+        <div class="hero-short">
+            <p>✦ 一次温和的了解</p>
+            <div style="margin-top: 10px;">
+                <span class="accent-dot"></span> 百家乐，纸牌桌上的一种节奏。
+            </div>
+        </div>
+
+        <!-- 承接段落：简明指南 + 访问提醒 -->
+        <div class="intro-text">
+            <p>如果你刚刚接触或者只是偶尔听到这个名字，这里有一份简短的指南。它不复杂，规则围绕「庄」「闲」两方展开，每局由点数决定胜负。重点不在于技巧高低，而在于你如何看待这个过程。</p>
+            <p>这里有一个访问的小提醒：当你打算了解更多实际对局或规则细节时，<span class="highlight">用稳定的节奏去浏览</span>，而不是急于一次看完所有。很多信息需要慢慢消化。</p>
+        </div>
+
+        <!-- 特点列表 · 网格卡片 -->
+        <div class="grid-cards">
+            <div class="card">
+                <h3><span>1</span> 清晰的基础</h3>
+                <p>每局只涉及两方：庄家和闲家。你只需选择支持哪一方，然后等待牌面揭晓。没有复杂的组合判断。</p>
+            </div>
+            <div class="card">
+                <h3><span>2</span> 自然的节奏</h3>
+                <p>一局接着一局，周期短，适合观察。你可以连续看几轮，再决定是否参与。节奏由你控制。</p>
+            </div>
+            <div class="card">
+                <h3><span>3</span> 常见的场景</h3>
+                <p>许多平台都提供这个项目，它常常出现在游戏大厅的显眼位置。你不需要额外学习太多术语。</p>
+            </div>
+            <div class="card">
+                <h3><span>4</span> 温和的界限</h3>
+                <p>无论输赢，不妨设定一个小框架。比如只看十局，或者只用一个固定的预算。界限让体验更从容。</p>
+            </div>
+        </div>
+
+        <!-- 场景 + 提示 混合段落 -->
+        <div style="margin: 20px 0 28px;">
+            <p style="margin-bottom: 16px;">想象这样一个下午：你打开一个页面，看到牌桌、筹码和倒计时。你可以先观望，看几局走势，熟悉一下界面。没有人催促你。很多新玩家发现，先花十分钟看看牌路，心态会平稳很多。</p>
+            <p>另一个常见的场景是：你熟悉了基本规则后，开始注意一些细微的规律——但要注意，每一局都是独立的。保持轻松，比执着于某个模式更重要。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>百家乐需要记忆很多规则吗？</summary>
+                <div class="answer">不需要。你只需知道点数计算方式：10、J、Q、K算0点，A算1点，其余按面值。两张牌点数相加取个位数，谁更接近9就赢。很直接。</div>
+            </details>
+            <details>
+                <summary>在哪里可以体验真实的流程？</summary>
+                <div class="answer">很多在线平台都提供模拟或真实对局。你可以先在免费模式里感受节奏，再决定下一步。一个可以参考的站点是 <a href="https://ssl-baccarat.com" style="color:#1b6b62; text-decoration:underline; text-underline-offset:3px;">百家乐</a> ，上面有完整的规则介绍和界面示例。</div>
+            </details>
+            <details>
+                <summary>有没有什么心态上的建议？</summary>
+                <div class="answer">把它看作一种休闲娱乐，而不是任务。不追求连续赢，也不因为连续输而急躁。适可而止，保持好奇，但不沉迷。</div>
+            </details>
+        </div>
+
+        <!-- 温和结尾 -->
+        <div class="gentle-closing">
+            <p>☁️ 每一次洗牌都是新的开始。</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;">无论你只是路过，还是想深入了解，带着轻松的心情就好。</p>
+            <div class="reminder">✦ 慢慢来，比较快</div>
+        </div>
+
+        <!-- 嵌入链接的自然句子 -->
+        <div style="margin-top: 28px; padding: 10px 0; text-align: left;">
+            <p style="font-size: 0.95rem;">如果你想更系统地了解规则和不同变体，<a href="https://ssl-baccarat.com" style="color:#1e6b60; text-decoration: none; border-bottom: 1px solid #2a9d8f; font-weight: 500;">百家乐</a> 页面整理了常见的玩法说明和术语表，适合作为起点。</p>
+            <p style="margin-top: 12px; font-size: 0.9rem; color: #3b6862;">它不是一个需要冲刺的领域，而是一场悠闲的散步。</p>
+        </div>
+
+        <!-- 小备注 -->
+        <div class="small-note">
+            <span>✦</span> 阅读即了解 · 不构成任何建议 <span>✦</span>
+        </div>
+    </div>
+</body>
+</html>
